@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import beep from "./buzzer.mp3";
 
 function Session(props) {
   return (
@@ -49,8 +50,10 @@ function Time(props) {
 
 function segToTime(s) {
   const min = Math.floor(s / 60);
+  const minText = (min>9) ? min : "0"+min;
   const seg = s % 60;
-  return seg < 10 ? min + ":0" + seg : min + ":" + seg;
+  const segText = seg > 9 ? seg : "0" + seg;
+  return minText+":"+segText;
 }
 
 function timeToSeg(time) {
@@ -69,6 +72,7 @@ class PomodoroClock extends React.Component {
       running: false,
       fase: "Session",
     };
+    this.audio = React.createRef();
     this.updateTime = this.updateTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -76,7 +80,7 @@ class PomodoroClock extends React.Component {
   updateTime() {
     if (!this.state.running) {
       this.setState({ running: true });
-      this.timerID = setInterval(() => this.tick(), 10);
+      this.timerID = setInterval(() => this.tick(), 1000);
     } else {
       this.setState({ running: false });
       clearInterval(this.timerID);
@@ -88,22 +92,29 @@ class PomodoroClock extends React.Component {
     if (time > 0) {
       this.setState({ time: time - 1 });
     } else if (fase === "Session") {
+      this.audio.current.currentTime = 0;
+      this.audio.current.play();
       this.setState({ time: breakL * 60, fase: "Break" });
     } else if (fase === "Break") {
+      this.audio.current.currentTime = 0;
+      this.audio.current.play();
       this.setState({ time: sessionL * 60, fase: "Session" });
     }
     console.log(fase);
   }
 
   handleClick(e) {
-    let { time, sessionL, breakL, running } = this.state;
+    let { time, sessionL, breakL, running, fase } = this.state;
     switch (e.target.id) {
       case "reset":
         running = false;
         clearInterval(this.timerID);
+        this.audio.current.pause();
+        this.audio.current.currentTime = 0;
         time = 1500;
         sessionL = 25;
         breakL = 5;
+        fase = "Session";
         break;
       case "session-increment":
         sessionL < 60 && sessionL++ && (time = sessionL * 60);
@@ -125,6 +136,7 @@ class PomodoroClock extends React.Component {
       sessionL: sessionL,
       breakL: breakL,
       running: running,
+      fase: fase,
     });
   }
 
@@ -142,6 +154,7 @@ class PomodoroClock extends React.Component {
           handleClick={this.handleClick}
           updateTime={this.updateTime}
         />
+        <audio id="beep" className="beep" ref={this.audio} src={beep} />
       </div>
     );
   }
