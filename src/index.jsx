@@ -36,13 +36,15 @@ function Break(props) {
 function Time(props) {
   return (
     <div id="time">
-      <h3 id="timer-label">{props.fase}</h3>
-      <div id="time-left">{props.time}</div>
-      <div id="start_stop" onClick={props.updateTime}>
-        Play/Pause
-      </div>
-      <div id="reset" onClick={props.handleClick}>
-        Reset
+      <div id="inner-border">
+        <h3 id="timer-label">{props.fase}</h3>
+        <div id="time-left">{props.time}</div>
+        <div id="start_stop" onClick={props.updateTime}>
+          Play/Pause
+        </div>
+        <div id="reset" onClick={props.handleClick}>
+          Reset
+        </div>
       </div>
     </div>
   );
@@ -50,16 +52,10 @@ function Time(props) {
 
 function segToTime(s) {
   const min = Math.floor(s / 60);
-  const minText = (min>9) ? min : "0"+min;
+  const minText = min > 9 ? min : "0" + min;
   const seg = s % 60;
   const segText = seg > 9 ? seg : "0" + seg;
-  return minText+":"+segText;
-}
-
-function timeToSeg(time) {
-  let min = Number(time.splice(0, 2));
-  let seg = Number(time.splice(3));
-  return min * 60 + seg;
+  return minText + ":" + segText;
 }
 
 class PomodoroClock extends React.Component {
@@ -142,18 +138,18 @@ class PomodoroClock extends React.Component {
 
   render() {
     return (
-      <div>
-        <Session
-          sessionL={this.state.sessionL}
-          handleClick={this.handleClick}
-        />
-        <Break breakL={this.state.breakL} handleClick={this.handleClick} />
+      <div id="pomodoro">
         <Time
           fase={this.state.fase}
           time={segToTime(this.state.time)}
           handleClick={this.handleClick}
           updateTime={this.updateTime}
         />
+        <Session
+          sessionL={this.state.sessionL}
+          handleClick={this.handleClick}
+        />
+        <Break breakL={this.state.breakL} handleClick={this.handleClick} />
         <audio id="beep" className="beep" ref={this.audio} src={beep} />
       </div>
     );

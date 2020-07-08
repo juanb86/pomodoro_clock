@@ -11,22 +11,57 @@
 
 /* General set-up */
 
+@font-face {
+    font-family: Digital;
+    src: url(digital-7.regular.ttf);
+}
+
 html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
 body {
-    font-family: "Electrolize", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: black;
     font-size: 1.6rem;
     line-height: 1.2;
-    background: #5d6d5d no-repeat center top;
+    background: #E5E5E5 no-repeat center top;
     background-size: 100vw 100vh;
     overflow-x: hidden;
 }
 
-#root {
+#pomodoro {
     width: 50%;
-    margin: auto;
+    margin: 1rem auto;
+    width: 79rem;
+    height: 58rem;
+    background: #1F2525;
+    border-radius: 1.3rem;
+}
+
+#time {
+    width: 79rem;
+    height: 19.75rem;
+    background: #1F2525;
+    box-shadow: 0px 0.4rem 0.065rem rgba(0, 0, 0, 0.5);
+    border-radius: 1.3rem;
+}
+
+#inner-border {
+    content: "";
+    position: relative;
+    width: 75.7rem;
+    height: 16.4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.65rem solid #C3CDCB;
+    box-sizing: border-box;
+    box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25);
+    border-radius: 1.3rem;
+}
+
+#time-left {
+    font-family: Digital;
 }
