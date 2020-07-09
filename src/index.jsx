@@ -39,11 +39,13 @@ function Time(props) {
       <div id="inner-border">
         <h3 id="timer-label">{props.fase}</h3>
         <div id="time-left">{props.time}</div>
-        <div id="start_stop" onClick={props.updateTime}>
-          Play/Pause
+        <div id="div-start_stop">
+          <button id="start_stop" onClick={props.updateTime} />
+          <h3>Play/Pause</h3>
         </div>
-        <div id="reset" onClick={props.handleClick}>
-          Reset
+        <div id="div-reset">
+          <button id="reset" onClick={props.handleClick} />
+          <h3>Reset</h3>
         </div>
       </div>
     </div>

@@ -1,67 +1,134 @@
 /* Reset values */
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 /* General set-up */
 
 @font-face {
-    font-family: Digital;
-    src: url(digital-7.regular.ttf);
+  font-family: Digital;
+  src: url(digital-7.regular.ttf);
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    color: black;
-    font-size: 1.6rem;
-    line-height: 1.2;
-    background: #E5E5E5 no-repeat center top;
-    background-size: 100vw 100vh;
-    overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  color: #cbd9e3;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  background: #e5e5e5 no-repeat center top;
+  background-size: 100vw 100vh;
+  overflow-x: hidden;
 }
 
 #pomodoro {
-    width: 50%;
-    margin: 1rem auto;
-    width: 79rem;
-    height: 58rem;
-    background: #1F2525;
-    border-radius: 1.3rem;
+  width: 50%;
+  margin: 1rem auto;
+  width: 79rem;
+  height: 58rem;
+  background: #1f2525;
+  border-radius: 1.3rem;
 }
 
 #time {
-    width: 79rem;
-    height: 19.75rem;
-    background: #1F2525;
-    box-shadow: 0px 0.4rem 0.065rem rgba(0, 0, 0, 0.5);
-    border-radius: 1.3rem;
+  width: 79rem;
+  height: 19.75rem;
+  background: #1f2525;
+  box-shadow: 0px 0.4rem 0.065rem rgba(0, 0, 0, 0.5);
+  border-radius: 1.3rem;
 }
 
 #inner-border {
-    content: "";
-    position: relative;
-    width: 75.7rem;
-    height: 16.4rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0.65rem solid #C3CDCB;
-    box-sizing: border-box;
-    box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25);
-    border-radius: 1.3rem;
+  position: relative;
+  width: 75.7rem;
+  height: 16.4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.65rem solid #c3cdcb;
+  box-sizing: border-box;
+  box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.3rem;
+
+  display: grid;
+  grid-template-columns: 10rem 28.5rem auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "timer-label time-left start_stop"
+    "timer-label time-left reset";
+  grid-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+}
+
+#timer-label {
+  grid-area: timer-label;
 }
 
 #time-left {
-    font-family: Digital;
+  grid-area: time-left;
+  align-self: center;
+  text-align: center;
+  width: 28.5rem;
+  height: 11rem;
+  position: relative;
+  background: #2f090a;
+  border-radius: 1.3rem;
+  font-family: Digital;
+  font-size: 12rem;
+  line-height: 8rem;
+  color: #f1252b;
+  text-shadow: 0rem 0rem 0.65rem rgba(241, 37, 43, 0.5);
+}
+
+#div-start_stop {
+  grid-area: start_stop;
+  display: flex;
+  align-items: center;
+}
+
+#start_stop {
+  position: relative;
+  width: 17rem;
+  height: 4.3rem;
+  margin: 0 1rem 0 2rem;
+
+  background: #1f2525;
+  border: 0.065rem solid #151a1a;
+  box-sizing: border-box;
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
+  border-radius: 2.6rem;
+}
+
+#div-reset {
+  grid-area: reset;
+  display: flex;
+  align-items: center;
+}
+
+#reset {
+  position: relative;
+  width: 9.8rem;
+  height: 1.7rem;
+  margin: 0 1rem 0 9rem;
+
+  background: #1f2525;
+  border: 0.065rem solid #151a1a;
+  box-sizing: border-box;
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.4rem 0.4rem 0.52rem rgba(255, 255, 255, 0.25);
+  border-radius: 2.6rem;
 }
