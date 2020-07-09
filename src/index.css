@@ -5,9 +5,7 @@
   padding: 0;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
@@ -61,27 +59,50 @@ body {
   box-sizing: border-box;
   box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25);
   border-radius: 1.3rem;
-
   display: grid;
-  grid-template-columns: 10rem 28.5rem auto;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "timer-label time-left start_stop"
-    "timer-label time-left reset";
+  grid-template-columns: 6rem 29.5rem auto;
+  grid-template-rows: 5rem 5rem;
+  grid-template-areas: "label-session time-left start_stop" "label-break time-left reset";
   grid-gap: 1rem;
   justify-content: center;
   align-content: center;
 }
 
 #timer-label {
-  grid-area: timer-label;
+  display: none;
+  position: absolute;
+}
+
+#label-session {
+  grid-area: label-session;
+  align-self: center;
+  justify-self: end;
+}
+
+#label-break {
+  grid-area: label-break;
+  align-self: center;
+  justify-self: end;
+}
+
+.fase-dot {
+  font-family: Digital;
+  font-size: 12rem;
+  color: #f1252b;
+  text-shadow: 0rem 0rem 0.65rem rgba(241, 37, 43, 0.5);
+  position: absolute;
+  line-height: 0.1;
+  left: 11rem;
+  transform: translate(0%, -6.5rem);
+  z-index: 10;
 }
 
 #time-left {
   grid-area: time-left;
   align-self: center;
-  text-align: center;
-  width: 28.5rem;
+  text-align: end;
+  padding-right: 1rem;
+  width: 29.5rem;
   height: 11rem;
   position: relative;
   background: #2f090a;
@@ -104,12 +125,10 @@ body {
   width: 17rem;
   height: 4.3rem;
   margin: 0 1rem 0 2rem;
-
   background: #1f2525;
   border: 0.065rem solid #151a1a;
   box-sizing: border-box;
-  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
-    inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25), inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
 }
 
@@ -124,11 +143,9 @@ body {
   width: 9.8rem;
   height: 1.7rem;
   margin: 0 1rem 0 9rem;
-
   background: #1f2525;
   border: 0.065rem solid #151a1a;
   box-sizing: border-box;
-  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
-    inset -0.4rem 0.4rem 0.52rem rgba(255, 255, 255, 0.25);
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25), inset -0.4rem 0.4rem 0.52rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
 }
