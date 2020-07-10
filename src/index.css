@@ -5,7 +5,9 @@
   padding: 0;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -132,7 +134,8 @@ body {
   background: #1f2525;
   border: 0.065rem solid #151a1a;
   box-sizing: border-box;
-  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25), inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
 }
 
@@ -152,7 +155,8 @@ body {
   background: #1f2525;
   border: 0.065rem solid #151a1a;
   box-sizing: border-box;
-  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25), inset -0.26rem 0.26rem 0.26rem rgba(255, 255, 255, 0.25);
+  box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.26rem 0.26rem 0.26rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
 }
 
@@ -161,7 +165,7 @@ body {
 #time::after {
   width: 75.7rem;
   height: 0px;
-  border: 0.32rem solid #E63E3E;
+  border: 0.2rem solid #e63e3e;
   content: "";
   display: block;
   margin: 4.5rem auto;
@@ -173,12 +177,14 @@ body {
 
 #break {
   float: right;
+  margin-right: 7rem;
 }
 
 .miniD {
   display: flex;
   flex-direction: column;
-  margin: 4rem;
+  margin: 2.5rem 1.5rem;
+  align-items: center;
 }
 
 .miniD-label {
@@ -187,8 +193,40 @@ body {
 }
 
 .miniD-length {
-  width: 15.5rem;
-  height: 66.49px;
-  background: #2F090A;
+  width: 14rem;
+  height: 6.6rem;
+  background: #2f090a;
   border-radius: 0.32rem;
+  text-align: center;
+  font-family: Digital;
+  font-size: 8rem;
+  line-height: 4.5rem;
+  color: #f1252b;
+  text-shadow: 0rem 0rem 0.65rem rgba(241, 37, 43, 0.5);
+}
+
+.miniD-btns {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.miniD-div {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  align-items: center;
+}
+
+.miniD-btn {
+  width: 1.3rem;
+  height: 6rem;
+
+  background: #1f2525;
+  border: 0.06rem solid #151a1a;
+  box-sizing: border-box;
+  box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25),
+    inset -0.26rem 0.26rem 0.5rem rgba(255, 255, 255, 0.25);
+  border-radius: 1.3rem;
+  transform: rotate(-40deg);
 }

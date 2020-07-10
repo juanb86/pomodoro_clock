@@ -12,19 +12,23 @@ function Session(props) {
       <div className="miniD-length" id="session-length">
         {props.sessionL}
       </div>
-      <div
-        className="miniD-increment"
-        id="session-increment"
-        onClick={props.handleClick}
-      >
-        Inc
-      </div>
-      <div
-        className="miniD-decrement"
-        id="session-decrement"
-        onClick={props.handleClick}
-      >
-        Dec
+      <div className="miniD-btns">
+        <div className="miniD-div">
+          <button
+            className="miniD-btn"
+            id="session-increment"
+            onClick={props.handleClick}
+          />
+          <h4>Inc</h4>
+        </div>
+        <div className="miniD-div">
+          <button
+            className="miniD-btn"
+            id="session-decrement"
+            onClick={props.handleClick}
+          />
+          <h4>Dec</h4>
+        </div>
       </div>
     </div>
   );
@@ -39,19 +43,23 @@ function Break(props) {
       <div className="miniD-length" id="break-length">
         {props.breakL}
       </div>
-      <div
-        className="miniD-increment"
-        id="break-increment"
-        onClick={props.handleClick}
-      >
-        Inc
-      </div>
-      <div
-        className="miniD-decrement"
-        id="break-decrement"
-        onClick={props.handleClick}
-      >
-        Dec
+      <div className="miniD-btns">
+        <div className="miniD-div">
+          <button
+            className="miniD-btn"
+            id="break-increment"
+            onClick={props.handleClick}
+          />
+          <h4>Inc</h4>
+        </div>
+        <div className="miniD-div">
+          <button
+            className="miniD-btn"
+            id="break-decrement"
+            onClick={props.handleClick}
+          />
+          <h4>Dec</h4>
+        </div>
       </div>
     </div>
   );
