@@ -5,30 +5,54 @@ import beep from "./buzzer.mp3";
 
 function Session(props) {
   return (
-    <div id="session">
-      <h3 id="session-label">Session Length</h3>
-      <div id="session-increment" onClick={props.handleClick}>
+    <div className="miniD" id="session">
+      <h3 className="miniD-label" id="session-label">
+        Session
+      </h3>
+      <div className="miniD-length" id="session-length">
+        {props.sessionL}
+      </div>
+      <div
+        className="miniD-increment"
+        id="session-increment"
+        onClick={props.handleClick}
+      >
         Inc
       </div>
-      <div id="session-decrement" onClick={props.handleClick}>
+      <div
+        className="miniD-decrement"
+        id="session-decrement"
+        onClick={props.handleClick}
+      >
         Dec
       </div>
-      <div id="session-length">{props.sessionL}</div>
     </div>
   );
 }
 
 function Break(props) {
   return (
-    <div id="break">
-      <h3 id="break-label">Break Length</h3>
-      <div id="break-increment" onClick={props.handleClick}>
+    <div className="miniD" id="break">
+      <h3 className="miniD-label" id="break-label">
+        Break
+      </h3>
+      <div className="miniD-length" id="break-length">
+        {props.breakL}
+      </div>
+      <div
+        className="miniD-increment"
+        id="break-increment"
+        onClick={props.handleClick}
+      >
         Inc
       </div>
-      <div id="break-decrement" onClick={props.handleClick}>
+      <div
+        className="miniD-decrement"
+        id="break-decrement"
+        onClick={props.handleClick}
+      >
         Dec
       </div>
-      <div id="break-length">{props.breakL}</div>
     </div>
   );
 }
@@ -174,11 +198,11 @@ class PomodoroClock extends React.Component {
           handleClick={this.handleClick}
           updateTime={this.updateTime}
         />
+        <Break breakL={this.state.breakL} handleClick={this.handleClick} />
         <Session
           sessionL={this.state.sessionL}
           handleClick={this.handleClick}
         />
-        <Break breakL={this.state.breakL} handleClick={this.handleClick} />
         <audio id="beep" className="beep" ref={this.audio} src={beep} />
       </div>
     );
