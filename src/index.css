@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: Digital;
-  src: url(digital-7.regular.ttf);
+  src: url(./resources/digital-7.regular.ttf);
 }
 
 html {
@@ -173,11 +173,15 @@ body {
 
 #session {
   float: right;
+  z-index: 10;
+  position: relative;
 }
 
 #break {
   float: right;
   margin-right: 7rem;
+  z-index: 10;
+  position: relative;
 }
 
 .miniD {
@@ -229,4 +233,13 @@ body {
     inset -0.26rem 0.26rem 0.5rem rgba(255, 255, 255, 0.25);
   border-radius: 1.3rem;
   transform: rotate(-40deg);
+}
+
+#pomodoro > svg {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -144%);
+  position: relative;
+  width: 75.7rem;
+  height: 33.9rem;
 }

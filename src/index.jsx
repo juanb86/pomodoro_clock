@@ -1,123 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import beep from "./buzzer.mp3";
-
-function Session(props) {
-  return (
-    <div className="miniD" id="session">
-      <h3 className="miniD-label" id="session-label">
-        Session
-      </h3>
-      <div className="miniD-length" id="session-length">
-        {props.sessionL}
-      </div>
-      <div className="miniD-btns">
-        <div className="miniD-div">
-          <button
-            className="miniD-btn"
-            id="session-increment"
-            onClick={props.handleClick}
-          />
-          <h4>Inc</h4>
-        </div>
-        <div className="miniD-div">
-          <button
-            className="miniD-btn"
-            id="session-decrement"
-            onClick={props.handleClick}
-          />
-          <h4>Dec</h4>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Break(props) {
-  return (
-    <div className="miniD" id="break">
-      <h3 className="miniD-label" id="break-label">
-        Break
-      </h3>
-      <div className="miniD-length" id="break-length">
-        {props.breakL}
-      </div>
-      <div className="miniD-btns">
-        <div className="miniD-div">
-          <button
-            className="miniD-btn"
-            id="break-increment"
-            onClick={props.handleClick}
-          />
-          <h4>Inc</h4>
-        </div>
-        <div className="miniD-div">
-          <button
-            className="miniD-btn"
-            id="break-decrement"
-            onClick={props.handleClick}
-          />
-          <h4>Dec</h4>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Time(props) {
-  return (
-    <div id="time">
-      <div id="inner-border">
-        <h3 id="timer-label">{props.fase}</h3>
-        <div id="label-session">
-          <h3>Session</h3>
-          <h3
-            style={
-              props.fase === "Session"
-                ? { display: "initial" }
-                : { display: "none" }
-            }
-            className="fase-dot"
-          >
-            .
-          </h3>
-        </div>
-        <div id="label-break">
-          <h3>Break</h3>
-          <h3
-            style={
-              props.fase === "Break"
-                ? { display: "initial" }
-                : { display: "none" }
-            }
-            className="fase-dot"
-          >
-            .
-          </h3>
-        </div>
-
-        <div id="time-left">{props.time}</div>
-        <div id="div-start_stop">
-          <button id="start_stop" onClick={props.updateTime} />
-          <h3>Play/Pause</h3>
-        </div>
-        <div id="div-reset">
-          <button id="reset" onClick={props.handleClick} />
-          <h3>Reset</h3>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function segToTime(s) {
-  const min = Math.floor(s / 60);
-  const minText = min > 9 ? min : "0" + min;
-  const seg = s % 60;
-  const segText = seg > 9 ? seg : "0" + seg;
-  return minText + ":" + segText;
-}
+import Time from "./components/Time";
+import Session from "./components/Session";
+import Break from "./components/Break";
+import Frame from "./components/Frame";
+import beep from "./resources/buzzer.mp3";
 
 class PomodoroClock extends React.Component {
   constructor(props) {
@@ -211,10 +99,19 @@ class PomodoroClock extends React.Component {
           sessionL={this.state.sessionL}
           handleClick={this.handleClick}
         />
+        <Frame />
         <audio id="beep" className="beep" ref={this.audio} src={beep} />
       </div>
     );
   }
+}
+
+function segToTime(s) {
+  const min = Math.floor(s / 60);
+  const minText = min > 9 ? min : "0" + min;
+  const seg = s % 60;
+  const segText = seg > 9 ? seg : "0" + seg;
+  return minText + ":" + segText;
 }
 
 // ========================================
