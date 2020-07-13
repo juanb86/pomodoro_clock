@@ -137,6 +137,13 @@ body {
   box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
     inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
+  transition: transform 10ms, box-shadow 10ms;
+}
+
+#start_stop:active {
+  transform: translateY(0.26rem);
+  box-shadow: -0.26rem 0rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
 }
 
 #div-reset {
@@ -158,6 +165,13 @@ body {
   box-shadow: -0.26rem 0.26rem 0.26rem rgba(0, 0, 0, 0.25),
     inset -0.26rem 0.26rem 0.26rem rgba(255, 255, 255, 0.25);
   border-radius: 2.6rem;
+  transition: transform 10ms, box-shadow 10ms;
+}
+
+#reset:active {
+  transform: translateY(0.26rem);
+  box-shadow: -0.26rem 0rem 0.26rem rgba(0, 0, 0, 0.25),
+    inset -0.4rem 0.4rem 0.5rem rgba(255, 255, 255, 0.25);
 }
 
 /* Session display */
@@ -232,7 +246,14 @@ body {
   box-shadow: -0.13rem 0.13rem 0.13rem rgba(0, 0, 0, 0.25),
     inset -0.26rem 0.26rem 0.5rem rgba(255, 255, 255, 0.25);
   border-radius: 1.3rem;
-  transform: rotate(-40deg);
+  transform: rotate(-40deg) translateY(0rem);
+  transition: transform 10ms, box-shadow 10ms;
+}
+
+.miniD-btn:active {
+  transform: rotate(-40deg) translateY(0.13rem);
+  box-shadow: -0.13rem 0rem 0.13rem rgba(0, 0, 0, 0.25),
+    inset -0.26rem 0.26rem 0.5rem rgba(255, 255, 255, 0.25);
 }
 
 #pomodoro > svg {
