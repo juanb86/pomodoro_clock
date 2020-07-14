@@ -20,6 +20,8 @@ class PomodoroClock extends React.Component {
     this.audio = React.createRef();
     this.updateTime = this.updateTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleChangeS = this.handleChangeS.bind(this);
+    this.handleChangeB = this.handleChangeB.bind(this);
   }
 
   updateTime() {
@@ -46,6 +48,28 @@ class PomodoroClock extends React.Component {
       this.setState({ time: sessionL * 60, fase: "Session" });
     }
     console.log(fase);
+  }
+
+  handleChangeS(e) {
+    const value = e.target.value;
+    if (value < 100) {
+      if (value > 0) {
+        this.setState({ sessionL: value, time: value * 60 });
+      } else {
+        this.setState({ sessionL: 1, time: 60 });
+      }
+    }
+  }
+
+  handleChangeB(e) {
+    const value = e.target.value;
+    if (value < 100) {
+      if (value > 0) {
+        this.setState({ breakL: value });
+      } else {
+        this.setState({ breakL: 1 });
+      }
+    }
   }
 
   handleClick(e) {
@@ -94,9 +118,14 @@ class PomodoroClock extends React.Component {
           handleClick={this.handleClick}
           updateTime={this.updateTime}
         />
-        <Break breakL={this.state.breakL} handleClick={this.handleClick} />
+        <Break
+          breakL={this.state.breakL}
+          handleChange={this.handleChangeB}
+          handleClick={this.handleClick}
+        />
         <Session
           sessionL={this.state.sessionL}
+          handleChange={this.handleChangeS}
           handleClick={this.handleClick}
         />
         <Frame />

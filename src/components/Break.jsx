@@ -6,9 +6,15 @@ function Break(props) {
       <h3 className="miniD-label" id="break-label">
         Break
       </h3>
-      <div className="miniD-length" id="break-length">
-        {props.breakL}
-      </div>
+      <input
+        className="miniD-length"
+        id="break-length"
+        type="number"
+        value={props.breakL}
+        onChange={props.handleChange}
+        min="1"
+        max="99"
+      />
       <div className="miniD-btns">
         <div className="miniD-div">
           <button
